@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Postgresql-nodejs</title>
+	<script src="../jquery.js"></script>
+	<script src="../bootstrap/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<div class="col-sm-12">
+		<h3>Project: Nodejs + Postgresql (CURD) - [expres, ejs, pg, body-parser]</h3>
+		<a href="../student/create">
+			<input type="button" value="Create" class="btn btn-success">
+		</a>
+		<table class="table table-bordered">
+		    <thead>
+		      	<tr>
+			        <th>#</th>
+			        <th>Name</th>
+			        <th>Email</th>
+			        <th>Action</th>
+		      	</tr>
+		    </thead>
+		    <tbody>
+		    	<% var stt = 0 %>
+		    	<%  danhsachsinhvien.rows.forEach(function(sv){ %>
+		    		<% stt++ %>
+					<tr>
+				        <td><%= stt %></td>
+				        <td><%= sv.hoten %></td>
+				        <td><%= sv.email %></td>
+				        <td>
+				        	<a href="../student/<%= sv.id %>/edit" title=""><input type="button" value="Edit" class="btn btn-info btn-sm"></a>
+				        	<a onclick="return confirm('Are you sure?');" href="../student/<%= sv.id %>/delete" title=""><input type="button" value="Delete" class="btn btn-danger btn-sm"></a>
+				        </td>
+			      	</tr>
+		    	<% }); %>
+		    </tbody>
+	 	</table>
+	</div>
+	
+</body>
+<script>
+	$(document).ready(function(){
+		
+	});
+</script>
+</html>
